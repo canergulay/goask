@@ -18,16 +18,15 @@ func NewAuthEntity(targetedPlatform string) authentication.AuthEntity {
 	username := readCredentialInput(reader, targetedPlatform, "username")
 	password := readCredentialInput(reader, targetedPlatform, "password")
 	authEntity := CreateAuthEntity(targetedPlatform, username, password)
-	return *authEntity
+	return authEntity
 }
 
-func CreateAuthEntity(platform string, username string, password string) *authentication.AuthEntity {
+func CreateAuthEntity(platform string, username string, password string) authentication.AuthEntity {
 	switch platform {
 	case EKSI:
-		var eksiAuthEntity authentication.AuthEntity
-		eksiAuthEntity = &authentication.EksiAuthEntity{}
+		eksiAuthEntity := &authentication.EksiAuthEntity{}
 		eksiAuthEntity.InitialiseEntity(username, password)
-		return &eksiAuthEntity
+		return eksiAuthEntity
 	case TWITTER:
 		os.Exit(1)
 		return nil
