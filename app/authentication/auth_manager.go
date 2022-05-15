@@ -29,7 +29,7 @@ func CreateAuthEntity(platform string, username string, password string) authent
 		return eksiAuthEntity
 	case TWITTER:
 		os.Exit(1)
-		return nil
+		// TODO : IMPLEMENT TWITTER AUTH ENTITY
 	}
 	return nil
 }
