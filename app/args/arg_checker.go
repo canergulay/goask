@@ -13,8 +13,7 @@ const (
 func (arger *ArgManager) Initialise() {
 	switch arger.First {
 	case auth:
-		authManager := authentication.NewAuthManager(arger.Second)
-		fmt.Println(authManager) //
+		authEntity := authentication.NewAuthEntity(arger.Second)
+		fmt.Println((authEntity).GetHeader())
 	}
-
 }
